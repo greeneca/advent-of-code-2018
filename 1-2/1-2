@@ -1,0 +1,17 @@
+#! /usr/bin/env ruby
+
+require "byebug"
+
+lines = File.readlines("./input.txt")
+frequency = 0
+history = {}
+while true
+  lines.each do |adjustment|
+    frequency += adjustment.to_i
+    if history[frequency]
+      puts frequency
+      exit
+    end
+    history[frequency] = true
+  end
+end

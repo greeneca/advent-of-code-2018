@@ -1,0 +1,15 @@
+#! /usr/bin/env ruby
+
+require "byebug"
+
+lines = File.readlines("./input.txt")
+lines.combination(2) do |a, b|
+  diff = 0
+  (0..a.length-1).each do |idx|
+    diff += 1 if a[idx] != b[idx]
+  end
+  if diff == 1
+    puts a
+    puts b
+  end
+end

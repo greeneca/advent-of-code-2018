@@ -1,0 +1,22 @@
+#! /usr/bin/env ruby
+
+require "byebug"
+
+lines = File.readlines("./input.txt")
+lines_with_double = 0
+lines_with_triple = 0
+
+lines.each do |line|
+  has_2, has_3 = false
+  all_chars = line.chars
+  all_chars.uniq.each do |char|
+    count = all_chars.count(char)
+    has_2 ||= count == 2
+    has_3 ||= count == 3
+    break if has_2 and has_3
+  end
+  lines_with_double += 1 if has_2
+  lines_with_triple += 1 if has_3
+end
+
+puts lines_with_double * lines_with_triple
