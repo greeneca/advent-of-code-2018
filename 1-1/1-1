@@ -1,0 +1,8 @@
+#! /usr/bin/env ruby
+
+require "byebug"
+
+lines = File.readlines("./input.txt")
+frequency = 0
+lines.each {|adjustment| frequency += adjustment.to_i}
+puts frequency
