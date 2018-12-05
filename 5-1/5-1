@@ -1,0 +1,19 @@
+#! /usr/bin/env ruby
+
+require "byebug"
+
+polymer = File.readlines("./input2.txt").first.strip.split("")
+idx = 0
+while idx < polymer.length-1
+  if polymer[idx] and polymer[idx+1]
+    if (polymer[idx].ord -  polymer[idx+1].ord).abs  == 32
+      2.times { polymer.delete_at(idx) }
+      idx -= 1
+    else
+      idx += 1
+    end
+  end
+end
+
+puts polymer.join("")
+puts polymer.length
